@@ -1,0 +1,48 @@
+﻿@using LoanBookDB_ASPNET_MVC_Web_BLL
+@model List<Genre>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<br />
+
+@{
+if (ViewBag.GenreListCount == 0)
+{
+    <div class="alert alert-success" role="alert">
+        There are no records related with Genre Table.
+    </div>
+}
+}
+
+<a href="" class="btn btn-sm btn-primary">Add New Genre</a><br /><br />
+
+
+
+@{
+if (ViewBag.GenreListCount > 0)
+    {
+        int line = 0;
+        <table class="table table-hover table-striped table-bordered">
+            <tr>
+                <th>Queue</th>
+                <th>Genre Name</th>
+                <th>Date Registered</th>
+                <th>Operations</th>
+            </tr>
+       @foreach (Genre item in Model)
+        {
+            <tr>
+                <td>@(line += 1) </td>
+                <td> @item.GenreName </td>
+                <td>@item.DateRegistered.ToShortDateString()</td>
+                <td>
+                    <input type="button" class="btn btn-sm btn-warning" value="Edit" />
+                    <input type="button" class="btn btn-sm btn-danger" value="Delete" />
+                </td>
+            </tr>
+        }
+        </table>
+    }
+}

@@ -1,0 +1,18 @@
+LoanBookDB_ASPNET_MVC_Web -> This project stands for UI
+Create a class library (.NET Framework) for BLL
+Add ADO item in BLL. EF Codefirst project is being implemented. Select your database and perform necessary setup.
+
+Entity Framework install command from NuGet console, Install for both UI and BLL
+Install-Package EntityFramework -Version 6.4.4
+Give BLL reference to UI
+
+Copy connectionString tag with its content in BLL -> App.config and paste it right below the end of entityFramework tag in web.config of UI -> project.
+
+Create a View under Shared folder. Name it _LayoutAdmin.cshtml Delete content of _LayoutAdmin's HTML and perform copy paste (with contents) from _Layout.cshtml as follows:
+	-<head> tag
+	-<div class="container body-content"> tag
+
+Create Action result called Test. Add View With layout _LayoutAdmin, Drag web panel folder on UI project from solution explorer. Alter _LayoutAdmin.cshtml as in _LayoutAdminMyNotes.csthml
+
+Add Empty Controllers name GenreController
+Then go to BLL add new folder as Managers and inside that folder create GenreManager class.

@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanBookDB_ASPNET_MVC_Web", "LoanBookDB_ASPNET_MVC_Web\LoanBookDB_ASPNET_MVC_Web.csproj", "{0AAA9DEF-B0D8-4568-ADEA-3E2593DC0FD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanBookDB_ASPNET_MVC_Web_BLL", "LoanBookDB_ASPNET_MVC_Web_BLL\LoanBookDB_ASPNET_MVC_Web_BLL.csproj", "{0874B84A-DBAB-476A-BBD1-EB69806D1BB7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "myResources", "myResources", "{96DC3B1F-C5DF-4369-AA00-6F24E9761EBE}"
+	ProjectSection(SolutionItems) = preProject
+		_LayoutAdminMyNotes.txt = _LayoutAdminMyNotes.txt
+		Instructions.txt = Instructions.txt
+		..\..\..\Desktop\LOANBOOKDB.bak = ..\..\..\Desktop\LOANBOOKDB.bak
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0AAA9DEF-B0D8-4568-ADEA-3E2593DC0FD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AAA9DEF-B0D8-4568-ADEA-3E2593DC0FD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AAA9DEF-B0D8-4568-ADEA-3E2593DC0FD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AAA9DEF-B0D8-4568-ADEA-3E2593DC0FD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0874B84A-DBAB-476A-BBD1-EB69806D1BB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0874B84A-DBAB-476A-BBD1-EB69806D1BB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0874B84A-DBAB-476A-BBD1-EB69806D1BB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0874B84A-DBAB-476A-BBD1-EB69806D1BB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B42E9FFF-EE0B-42B9-A0F4-D300CF7C309F}
+	EndGlobalSection
+EndGlobal
