@@ -34,6 +34,8 @@
                     <th>Queue</th>
                     <th>Book Name</th>
                     <th>Date Registered</th>
+                    <th>Genre</th>
+                    <th>Author</th>
                     <th>Operations</th>
                 </tr>
                 @foreach (Book item in Model)
@@ -42,6 +44,8 @@
                         <td>@(line += 1) </td>
                         <td> @item.BookName </td>
                         <td>@item.DateRegistered.ToShortDateString()</td>
+                        <td>@item.Genre.GenreName</td>
+                        <td>@item.Author.AuthorName @item.Author.AuthorSurname</td>
                         <td>
                             <input type="button" class="btn btn-sm btn-warning" value="Edit" />
                             <input type="button" class="btn btn-sm btn-danger" value="Delete" />

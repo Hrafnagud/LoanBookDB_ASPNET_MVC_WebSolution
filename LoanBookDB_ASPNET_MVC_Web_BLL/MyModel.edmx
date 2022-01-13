@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LOANBOOKDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LOANBOOKDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Author">
           <Key>
             <PropertyRef Name="Id" />
@@ -26,6 +26,7 @@
           <Property Name="AuthorId" Type="int" Nullable="false" />
           <Property Name="Pages" Type="int" Nullable="false" />
           <Property Name="Stock" Type="int" Nullable="false" />
+          <Property Name="ImageLink" Type="char" MaxLength="100" />
           <Property Name="IsPassive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Customer">
@@ -174,8 +175,7 @@
             <End Role="Loan" EntitySet="Loan" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LOANBOOKDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -205,6 +205,7 @@
           <NavigationProperty Name="Author" Relationship="Self.FK_Book_Author" FromRole="Book" ToRole="Author" />
           <NavigationProperty Name="Genre" Relationship="Self.FK_Book_Genre" FromRole="Book" ToRole="Genre" />
           <NavigationProperty Name="Loans" Relationship="Self.FK_Loan_Book" FromRole="Book" ToRole="Loan" />
+          <Property Name="ImageLink" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -378,6 +379,7 @@
           <EntitySetMapping Name="Books">
             <EntityTypeMapping TypeName="LOANBOOKDBModel.Book">
               <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="ImageLink" ColumnName="ImageLink" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DateRegistered" ColumnName="DateRegistered" />
                 <ScalarProperty Name="BookName" ColumnName="BookName" />

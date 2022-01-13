@@ -28,6 +28,7 @@ namespace LoanBookDB_ASPNET_MVC_Web_BLL
         public int Pages { get; set; }
         public int Stock { get; set; }
         public bool IsPassive { get; set; }
+        public string ImageLink { get; set; }
     
         public virtual Author Author { get; set; }
         public virtual Genre Genre { get; set; }
