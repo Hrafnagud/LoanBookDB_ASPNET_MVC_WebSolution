@@ -29,6 +29,10 @@
     {
         {
             int line = 0;
+            if (ViewBag.Now > 1)
+            {
+                line += (ViewBag.Now - 1) * ViewBag.PageSize;
+            }
             <table class="table table-hover table-striped table-bordered">
                 <tr>
                     <th>Queue</th>
@@ -47,12 +51,59 @@
                         <td>@item.Genre.GenreName</td>
                         <td>@item.Author.AuthorName @item.Author.AuthorSurname</td>
                         <td>
-                            <input type="button" class="btn btn-sm btn-warning" value="Edit" />
-                            <input type="button" class="btn btn-sm btn-danger" value="Delete" />
+                            @Html.ActionLink("Edit", "Edit", "Book"
+                           , new { id = item.Id }
+                           , new
+                                {
+                                    @class = "btn btn-sm btn-warning",
+                                    @style = "margin-right:3px"
+                                })
+
+                            @Html.ActionLink("Delete", "Delete", "Book"
+                         , new { id = item.Id }
+                         , new
+                              {
+                                  @class = "btn btn-sm btn-danger",
+                                  @style = "margin-right:3px"
+                              })
                         </td>
                     </tr>
                 }
             </table>
+            <br />
+            <div class="row">
+                <div class="text-center">
+                    <ul class="pagination">
+                        <li>
+                            <a href="@Url.Action("Index", "Book", new { page = ViewBag.Now - 1})" id="pagePrevious">&laquo;</a>
+                        </li>
+                        @for (int i = 1; i <= (int)ViewBag.TotalPages; i++)
+                        {
+                            <li>
+                                <a href="@Url.Action("Index", "Book", new { page = i })">@i</a>
+                            </li>
+                        }
+                        <li>
+                            <a href="@Url.Action("Index", "Book", new { page = ViewBag.Now + 1 })" id="pageNext">&raquo;</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         }
     }
+
+}
+
+@section scripts {
+    <script>
+        var now = @ViewBag.Now;
+        var sum = @ViewBag.TotalPages;
+        if (now == 1) {
+            $("#pagePrevious").RemoveAttr("href");
+        }
+
+        if (now == sum) {
+            $("#pageNext").RemoveAttr("href");
+        }
+    </script>
 }
