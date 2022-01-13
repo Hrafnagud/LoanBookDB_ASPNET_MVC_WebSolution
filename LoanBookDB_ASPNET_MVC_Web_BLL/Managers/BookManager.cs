@@ -25,5 +25,23 @@ namespace LoanBookDB_ASPNET_MVC_Web_BLL.Managers
                 throw ex;
             }
         }
+
+
+
+        public bool AddNewBook(Book newBook)
+        {
+            try
+            {
+                dbContext.Books.Add(newBook);
+                dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }

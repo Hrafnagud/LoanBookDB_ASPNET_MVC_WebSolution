@@ -24,7 +24,7 @@ namespace LoanBookDB_ASPNET_MVC_Web_BLL
         public string AuthorName { get; set; }
         public string AuthorSurname { get; set; }
         public System.DateTime DateRegistered { get; set; }
-        public byte IsPassive { get; set; }
+        public bool IsPassive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Book> Books { get; set; }

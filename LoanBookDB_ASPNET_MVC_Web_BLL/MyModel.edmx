@@ -13,7 +13,7 @@
           <Property Name="AuthorName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="AuthorSurname" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DateRegistered" Type="datetime" Nullable="false" />
-          <Property Name="IsPassive" Type="tinyint" Nullable="false" />
+          <Property Name="IsPassive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Book">
           <Key>
@@ -187,7 +187,7 @@
           <Property Name="AuthorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AuthorSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DateRegistered" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IsPassive" Type="Byte" Nullable="false" />
+          <Property Name="IsPassive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Books" Relationship="Self.FK_Book_Author" FromRole="Author" ToRole="Book" />
         </EntityType>
         <EntityType Name="Book">

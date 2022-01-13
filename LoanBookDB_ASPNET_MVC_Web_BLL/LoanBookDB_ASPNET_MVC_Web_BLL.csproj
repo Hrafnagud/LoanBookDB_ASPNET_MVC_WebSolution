@@ -68,6 +68,7 @@
     <Compile Include="Loan.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Managers\AuthorManager.cs" />
     <Compile Include="Managers\BookManager.cs" />
     <Compile Include="Managers\GenreManager.cs" />
     <Compile Include="MyModel.Context.cs">

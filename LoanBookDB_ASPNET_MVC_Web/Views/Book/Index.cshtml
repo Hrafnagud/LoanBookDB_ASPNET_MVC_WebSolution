@@ -99,11 +99,11 @@
         var now = @ViewBag.Now;
         var sum = @ViewBag.TotalPages;
         if (now == 1) {
-            $("#pagePrevious").RemoveAttr("href");
+            $("#pagePrevious").removeAttr("href");
         }
 
         if (now == sum) {
-            $("#pageNext").RemoveAttr("href");
+            $("#pageNext").removeAttr("href");
         }
     </script>
 }
