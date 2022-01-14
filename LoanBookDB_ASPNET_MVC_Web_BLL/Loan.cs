@@ -22,7 +22,7 @@ namespace LoanBookDB_ASPNET_MVC_Web_BLL
         public System.DateTime LoanStarts { get; set; }
         public System.DateTime LoanEnds { get; set; }
         public bool IsReturned { get; set; }
-        public Nullable<System.DateTime> DateReturned { get; set; }
+        public Nullable<DateTime> DateReturned { get; set; }
     
         public virtual Book Book { get; set; }
         public virtual Customer Customer { get; set; }

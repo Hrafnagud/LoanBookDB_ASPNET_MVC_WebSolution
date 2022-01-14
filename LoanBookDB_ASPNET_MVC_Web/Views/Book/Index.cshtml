@@ -33,20 +33,35 @@
             {
                 line += (ViewBag.Now - 1) * ViewBag.PageSize;
             }
-            <table class="table table-hover table-striped table-bordered">
-                <tr>
+            <table class="table table-hover table-striped table-bordered sortable">
+                @*<tr>
                     <th>Queue</th>
+                    <th>Image</th>
                     <th>Book Name</th>
                     <th>Date Registered</th>
                     <th>Genre</th>
                     <th>Author</th>
                     <th>Operations</th>
-                </tr>
+                </tr>*@
+
+                <thead>
+                    <tr>
+                        <th data-defaultsign="_19" style="cursor: pointer">Line &darr;&uarr;</th>
+                        <th>Image</th>
+                        <th data-defaultsign="AZ" style="cursor:pointer">Book Name &darr;&uarr;</th>
+                        <th data-defaultsign="date" style="cursor:pointer">Date Registered &darr;&uarr;</th>
+                        <th data-defaultsign="AZ" style="cursor:pointer">Genre &darr;&uarr;</th>
+                        <th data-defaultsign="AZ" style="cursor:pointer">Author &darr;&uarr;</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+
                 @foreach (Book item in Model)
                 {
                     <tr>
                         <td>@(line += 1) </td>
-                        <td> @item.BookName </td>
+                        <td><img src="@item.ImageLink" style="width:65px" /></td>
+                        <td class="align-middle">@item.BookName</td>
                         <td>@item.DateRegistered.ToShortDateString()</td>
                         <td>@item.Genre.GenreName</td>
                         <td>@item.Author.AuthorName @item.Author.AuthorSurname</td>
@@ -72,7 +87,7 @@
             </table>
             <br />
             <div class="row">
-                <div class="text-center">
+                <div class="text-center col-4 offset-4">
                     <ul class="pagination">
                         <li>
                             <a href="@Url.Action("Index", "Book", new { page = ViewBag.Now - 1})" id="pagePrevious">&laquo;</a>

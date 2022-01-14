@@ -7,48 +7,47 @@
 }
 
 <br />
+    <div class="form-group col-lg-6 offset-lg-3">
+        @using (Html.BeginForm("Add", "Book", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.Label("Book Name:")<br />
+                @Html.TextBoxFor(x => x.BookName, new { @class = "form-control" })
 
-<div class="form-group" col-4>
-    @using (Html.BeginForm("Add", "Book", FormMethod.Post, new { @class= "form-horizontal", enctype = "multipart/form-data" }))
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(false, "", new { @class = "text-danger"})
-        <div class="form-group">
-            @Html.Label("Book Name:")<br />
-            @Html.TextBoxFor(x => x.BookName, new { @class = "form-control" })
+            </div>
 
-        </div>
+            <div class="form-group">
+                @Html.Label("Genre:")<br />
+                @Html.DropDownListFor(x => x.GenreId, (List<SelectListItem>)ViewBag.GenreList, new { @class = "form-control" })
 
-        <div class="form-group">
-            @Html.Label("Genre:")<br />
-            @Html.DropDownListFor(x => x.GenreId, (List<SelectListItem>)ViewBag.GenreList, new { @class = "form-control" })
+            </div>
 
-        </div>
+            <div class="form-group">
+                @Html.Label("Author:")<br />
+                @Html.DropDownListFor(x => x.AuthorId, (List<SelectListItem>)ViewBag.AuthorList, new { @class = "form-control" })
 
-        <div class="form-group">
-            @Html.Label("Author:")<br />
-            @Html.DropDownListFor(x => x.AuthorId, (List<SelectListItem>)ViewBag.AuthorList, new { @class = "form-control" })
+            </div>
 
-        </div>
+            <div class="form-group">
+                @Html.Label("Pages:")<br />
+                @Html.TextBoxFor(x => x.Pages, new { @class = "form-control", type = "number", min = 0 })
+            </div>
 
-        <div class="form-group">
-            @Html.Label("Pages:")<br />
-            @Html.TextBoxFor(x => x.Pages, new { @class = "form-control", type = "number", min = 0 })
-        </div>
+            <div class="form-group">
+                @Html.Label("Stock:")<br />
+                @Html.TextBoxFor(x => x.Stock, new { @class = "form-control", type = "number", min = 0 })
+            </div>
 
-        <div class="form-group">
-            @Html.Label("Stock:")<br />
-            @Html.TextBoxFor(x => x.Stock, new { @class = "form-control", type = "number", min = 0 })
-        </div>
+            <div class="form-group">
+                @Html.Label("Image:")<br />
+                @Html.TextBoxFor(x => x.Image, new { @class = "form-control", type = "file", multiple = false })
+            </div>
 
-        <div class="form-group">
-            @Html.Label("Image:")<br />
-            @Html.TextBoxFor(x => x.Image, new { @class = "form-control", type = "file", multiple = false })
-        </div>
-
-        <div class="form-group">
-            <button type="submit" class="btn btn-info">Add Book</button>
-        </div>
-    }
-</div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-info">Add Book</button>
+            </div>
+        }
+    </div>
 

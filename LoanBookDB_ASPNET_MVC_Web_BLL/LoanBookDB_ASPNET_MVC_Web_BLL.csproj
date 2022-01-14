@@ -70,7 +70,9 @@
     </Compile>
     <Compile Include="Managers\AuthorManager.cs" />
     <Compile Include="Managers\BookManager.cs" />
+    <Compile Include="Managers\CustomerManager.cs" />
     <Compile Include="Managers\GenreManager.cs" />
+    <Compile Include="Managers\LoanOperationManager.cs" />
     <Compile Include="MyModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
