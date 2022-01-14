@@ -35,14 +35,14 @@
             }
             <table class="table table-hover table-striped table-bordered sortable">
                 @*<tr>
-                    <th>Queue</th>
-                    <th>Image</th>
-                    <th>Book Name</th>
-                    <th>Date Registered</th>
-                    <th>Genre</th>
-                    <th>Author</th>
-                    <th>Operations</th>
-                </tr>*@
+                        <th>Queue</th>
+                        <th>Image</th>
+                        <th>Book Name</th>
+                        <th>Date Registered</th>
+                        <th>Genre</th>
+                        <th>Author</th>
+                        <th>Operations</th>
+                    </tr>*@
 
                 <thead>
                     <tr>
@@ -60,7 +60,15 @@
                 {
                     <tr>
                         <td>@(line += 1) </td>
-                        <td><img src="@item.ImageLink" style="width:65px" /></td>
+                        @if (item.ImageLink == null)
+                        {
+
+                            <td><img src="~/BookImages/defaultbook.jpg" style="width:65px" /></td>
+                        }
+                        else
+                        {
+                            <td><img src="@item.ImageLink" style="width:65px" /></td>
+                        }
                         <td class="align-middle">@item.BookName</td>
                         <td>@item.DateRegistered.ToShortDateString()</td>
                         <td>@item.Genre.GenreName</td>

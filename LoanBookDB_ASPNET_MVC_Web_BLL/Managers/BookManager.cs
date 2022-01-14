@@ -16,7 +16,7 @@ namespace LoanBookDB_ASPNET_MVC_Web_BLL.Managers
             try
             {
                 List<Book> books = new List<Book>();
-                books = dbContext.Books.Where(x => !x.IsPassive && x.Stock > 0).ToList();
+                books = dbContext.Books.Where(x => !x.IsPassive && x.Stock > 0).OrderByDescending(x=>x.Id).ToList();
                 return books;
             }
             catch (Exception ex)

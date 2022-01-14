@@ -76,12 +76,12 @@ namespace LoanBookDB_ASPNET_MVC_Web.Controllers
                 if (!ModelState.IsValid)
                 {
                     ModelState.AddModelError("", "All fields must be filled");
-                    return View(new BookViewModel());
+                    return View(newBook);
                 }
 
                 Book bookToAdd = new Book()
                 {
-                    DateRegistered = newBook.DateRegistered,
+                    DateRegistered = DateTime.Now,
                     BookName = newBook.BookName,
                     Pages = newBook.Pages,
                     Stock = newBook.Stock,
@@ -91,38 +91,37 @@ namespace LoanBookDB_ASPNET_MVC_Web.Controllers
                 //If image != null, will be saved into system.
                 if (newBook.Image != null && newBook.Image.ContentType.Contains("image") && newBook.Image.ContentLength > 0)
                 {
-                    string fileName = Path.GetFileNameWithoutExtension(newBook.Image.FileName);
+                    //string fileName = Path.GetFileNameWithoutExtension(newBook.Image.FileName);
+                    string fileName = SiteSettings.CharacterFormatConverter(newBook.BookName).ToLower();
                     string extensionName = Path.GetExtension(newBook.Image.FileName);
-                    fileName += Guid.NewGuid().ToString().Replace("-", "");
+                    fileName += "-" + Guid.NewGuid().ToString().Replace("-", "");
                     var directoryPath = Server.MapPath($"~/BookImages/");
-                    var filePath = Server.MapPath($"~/BookImages") + fileName + extensionName;
+                    var filePath = Server.MapPath($"~/BookImages/") + fileName + extensionName;
                     if (!Directory.Exists(directoryPath))
                     {
                         Directory.CreateDirectory(directoryPath);
                     }
-
+                    newBook.Image.SaveAs(filePath);
                     bookToAdd.ImageLink = @"/BookImages/" + fileName + extensionName;
                 }
 
                 if (bookManager.AddNewBook(bookToAdd))
                 {
-                    RedirectToAction("Index", "Book");
+                    return RedirectToAction("Index", "Book");
                 }
                 else
                 {
                     ModelState.AddModelError("", "An error has occured!");
                     //TO DO: ex.Message can be logged.
-                    return View(new BookViewModel());
+                    return View(newBook);
                 }
 
-
-                return View(new BookViewModel());
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", "Unexpected error has occured!");
                 //TO DO: ex.Message can be logged.
-                return View(new BookViewModel());
+                return View(newBook);
             }
         }
 
